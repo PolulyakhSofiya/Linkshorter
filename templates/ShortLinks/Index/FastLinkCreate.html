@@ -1,0 +1,44 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'ShortLinks/bootstrap/datepicker/jquery.datetimepicker.min.css' %}">
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Create new link</h5>
+        <p class="card-text">The new short link will be created by supplying the source link and the time to live for
+            the link.</p>
+        {% if error %}
+            <h5 class="text-danger">{{ error }}</h5>
+        {% endif %}
+    </div>
+    <form action="{% url 'ShortLinks:create' %}" method="post">
+        {% csrf_token %}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="LongLinkValue" placeholder="Link to shorten"
+                           id="LongLinkValue" autocomplete="off"/>
+                </div>
+                <div class="input-group mb-3">
+                    <input id="datetimepicker" name="expirationDate" class="form-control" type="text"
+                           placeholder="Expiration date" autocomplete="off" required>
+                </div>
+                {% if not user.is_anonymous %}
+                    <div class="input-group mb-3">
+                        <button id="privateCheckboxButton" type="button" class="btn">
+                            <i class="fas fa-lock-open"></i>
+                            <i class="fas fa-lock" hidden></i>
+                            Private
+                        </button>
+                        <input type="checkbox" hidden id="privateCheckbox" name="private">
+                    </div>
+                {% endif %}
+                <input type="submit" class="btn btn-primary" value="Create"/>
+            </li>
+        </ul>
+    </form>
+
+    <script src="{% static 'ShortLinks/js/jquery2.1.4.min.js' %}"></script>
+    <script src="{% static 'ShortLinks/bootstrap/datepicker/jquery.datetimepicker.full.min.js' %}"></script>
+    <script src="{% static 'ShortLinks/js/Datetimepicker.js' %}"></script>
+    <script src="{% static 'ShortLinks/js/NewLinkCreator.js' %}"></script>
+</div>

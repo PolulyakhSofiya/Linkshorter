@@ -1,0 +1,15 @@
+{% block content %}
+<div class="row">
+    <div class="col s8 middle">
+        <div class="row flexbox middle">
+            <div class="middle col s6 min-w25">
+                {% include "ShortLinks/Index/FastLinkCreate.html" with error=model.error %}
+            </div>
+    
+            <div class="middle col s5 min-w25">
+                {% include "ShortLinks/Index/LinksList.html" with links=model.links host=model.host %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

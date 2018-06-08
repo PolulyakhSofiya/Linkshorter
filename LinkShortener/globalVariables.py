@@ -1,0 +1,3 @@
+MAX_LINK_TTL = 525600
+MIN_LINK_TTL = 1
+USE_HOST = 'localhost'

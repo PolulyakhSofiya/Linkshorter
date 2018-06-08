@@ -1,0 +1,5 @@
+{% extends "ShortLinks/Global/layout.html" %}
+{% load static %}
+ {% block content %}
+    {% include "ShortLinks/CreateNewAndListLinks.html" with model=model %}
+{% endblock %}

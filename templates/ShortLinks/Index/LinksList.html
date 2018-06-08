@@ -1,0 +1,11 @@
+{% if links %}
+    {% for url in links %}
+        {% include 'ShortLinks/details.html' with url=url %}
+    {% endfor %} {% else %}
+    <div class="card">
+        <div class="card-content white-text">
+            <span class="card-title">No links available.</span>
+        </div>
+    </div>
+
+{% endif %}

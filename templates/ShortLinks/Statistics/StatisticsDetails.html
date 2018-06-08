@@ -1,0 +1,37 @@
+{#{% load tz %}#}
+{% load linkTTLLeft from Filters %}
+{#{% block content %}#}
+{% load static %}
+<link rel="stylesheet" href="{% static 'ShortLinks/css/Statistics/StatisticsDetails.css'%}">
+ <li class="list-group-item">
+     <div class="d-flex flex-row flex-justify-between link-details">
+{#     <p></p>#}
+{#     <p></p>#}
+{#     <p></p>#}
+{#     <p></p>#}
+{#     <p></p>#}
+        <div>
+            <span>Short link: </span>
+            <span>
+                {{ link.ShortLinkId }}
+
+            </span>
+        </div>
+        <div>
+            {% if link.CreatedBy == request.user %}
+                <i class="fas fa-lock"></i>
+            {% endif %}
+        </div>
+        <div>
+            <i class="far fa-clipboard" onclick="copyToClipboard('{{ host }}/{{ link.ShortLinkId }}')"></i>
+        </div>
+
+        <div>
+            <span>{{ link.ExpirationDate|linkTTLLeft }}</span>
+        </div>
+
+        <div class="font-weight-bold text-primary w2">
+            <span>Used {{ link.TimesUsed }} times.</span>
+        </div>
+     </div>
+ </li>

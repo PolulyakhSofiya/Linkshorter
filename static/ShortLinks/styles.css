@@ -1,0 +1,79 @@
+@import "shorts/width.css";
+
+.nav-wrapper {
+    padding-bottom: 1em;
+}
+
+.row {
+    margin: auto 0;
+}
+table tr td {
+    text-end-overflow: hidden;
+}
+
+.m-lr-1 {
+    margin: auto 1em;
+}
+
+.p-lr-1 {
+    padding: 0 1em;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.overflowH {
+    overflow: hidden;
+}
+
+.overflow-y {
+    overflow-y: visible;
+    word-break: break-all;
+}
+.overflowV {
+    overflow: visible;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.middle {
+    margin: 0 auto;
+}
+
+#profileButton #name { display: none; }
+#profileButton:hover #profile { display: none; } #name { display: block; }
+
+.rounded-left {
+    border-radius: 25px 0 0 25px;
+}
+.rounded-right {
+    border-radius: 0 25px 25px 0;
+}
+.block {
+    display: inline-block;
+}
+
+.flex-justify-between {
+    justify-content: space-between;
+}
+
+.card {
+    border: 2px solid rgba(0,0,0,.250);
+}
+
+.bg-google-plus {
+    background-color: #d34836;
+}
+
+.bg-facebook {
+    background-color: #3b5998;
+}
+
+.card {
+    margin-bottom: .5rem;
+    margin-top: .5rem
+}

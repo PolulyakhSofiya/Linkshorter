@@ -1,0 +1,44 @@
+{% extends "ShortLinks/Global/layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="card w4 middle my-2">
+        <div class="card-body">
+            <h5 id="" class="card-title">
+                Login
+            </h5>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <ul class="list-group list-group-flush">
+                {% if error %}
+                    <li class="list-group-item">
+                        <h5 class="text-danger">{{ error }}</h5>
+                    </li>
+                {% endif %}
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Username"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="TTL" placeholder="Password"
+                               required>
+                        <a href="{% url 'ShortLinks:register' %}">No Account yet? Sign up.</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </li>
+                <li class="list-group-item">
+                    <div class="middle d-flex flex-justify-between" style="color: white;">
+                        <a href="{% url 'social:begin' 'github' %}" class="text-white btn w4 bg-facebook d-block overflowH">GitHub</a>
+                        <a href="{% url 'social:begin' 'google-oauth2' %}" class="text-white btn w4 bg-google-plus d-block overflowH">Login with Google</a>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+{% endblock %}

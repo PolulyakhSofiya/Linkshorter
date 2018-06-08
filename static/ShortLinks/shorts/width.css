@@ -1,0 +1,61 @@
+.w1 {
+    width: 10%;
+}
+.w2 {
+    width: 20%;
+}
+.w3 {
+    width: 30%;
+}
+.w4 {
+    width: 40%;
+}
+.w5 {
+    width: 50%;
+}
+.w6 {
+    width: 60%;
+}
+.w7 {
+    width: 70%;
+}
+.w8 {
+    width: 80%;
+}
+.w9 {
+    width: 90%;
+}
+.w10 {
+    width: 100%;
+}
+
+.min-w5 {
+    min-width: 5em;
+}
+.min-w10 {
+    min-width: 10em;
+}
+.min-w15 {
+    min-width: 15em;
+}
+.min-w20 {
+    min-width: 20em;
+}
+.min-w25 {
+    min-width: 25em;
+}
+.min-w30 {
+    min-width: 30em;
+}
+.min-w35 {
+    min-width: 35em;
+}
+.min-w40 {
+    min-width: 40em;
+}
+.min-w45 {
+    min-width: 45em;
+}
+.min-w50 {
+    min-width: 50em;
+}

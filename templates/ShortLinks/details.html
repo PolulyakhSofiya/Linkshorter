@@ -1,0 +1,26 @@
+{% load tz %}
+{% load linkTTLLeft from Filters %}
+
+{#```Requires host:str and url:ShortLink```#}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h5 id="{{ url.ShortLinkId }}" class="card-title">
+                {{ url.ShortLinkId }}
+                <i class="far fa-clipboard" onclick="copyToClipboard('{{ host }}/{{ url.ShortLinkId }}')"></i>
+                <span></span>
+            </h5>
+            <h6 class="card-subtitle mb-2">Original Link:</h6>
+            <p class="card-text"><a href="{{ url.LongLinkValue }}">{{ url.LongLinkValue }}</a></p>
+        </div>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a><span class=""><strong><span class="text-success">Time left: </span>{{ url.ExpirationDate|linkTTLLeft }}</strong></span></a>
+                </li>
+                <li class="list-group-item">
+                    <a><span class=""><strong><span class="text-primary">Used:</span> {{ url.TimesUsed }} times</strong></span></a>
+                </li>
+              </ul>
+    </div>
+{% endblock %}

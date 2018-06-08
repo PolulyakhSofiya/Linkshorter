@@ -1,0 +1,61 @@
+{% extends 'ShortLinks/Global/layout.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'ShortLinks/bootstrap/datepicker/jquery.datetimepicker.min.css' %}">
+
+    <div class="flex-row">
+    <div class="w6 middle">
+        <div class="flex-row my-3">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <div class="d-flex flex-row flex-justify-between font-weight-bold">
+                      <div>
+                          <span class="text-success">Total short links: </span>
+                          {{ model.totalShortLinksCount }}
+                      </div>
+                      <div>
+                          <span class="text-primary">Currently active links: </span>
+                          {{ model.currentlyActiveLinksCount }}
+                      </div>
+                  </div>
+              </li>
+            </ul>
+        </div>
+
+        <div class="flex-row my-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="input-group">
+                        <form action="" method="post" class="w10">
+                            {% csrf_token %}
+{#                      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">#}
+                          <input id="datetimepicker" name="finalDate" class="form-control" type="text" placeholder="Pick date and time" autocomplete="off">
+                            <small id="emailHelp" class="form-text text-muted">Get links that will expire by certain date.</small>
+{#                          <div class="input-group-append">#}
+                            <button type="submit" class="btn btn-primary">Filter</button>
+{#                          </div>#}
+                        </form>
+                    </div>
+                    {% if model.datetime is not None %}
+                        <p>Displaying links that will become unavailable on <span class="font-weight-bold">{{ model.datetime }}</span></p>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex-row">
+            <div class="flex-column">
+                <ul class="list-group">
+                    {% for link in model.links %}
+                        {% include 'ShortLinks/Statistics/StatisticsDetails.html' with link=link host=model.host%}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{% static 'ShortLinks/bootstrap/datepicker/jquery.datetimepicker.full.min.js' %}"></script>
+    <script src="{% static 'ShortLinks/js/Datetimepicker.js' %}"></script>
+{% endblock %}
